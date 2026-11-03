@@ -1,0 +1,99 @@
+<!doctype html>
+<!-- Free Etsy fee & profit calculator. Same math as the Small Shop Profit Tracker (verified by verify_tracker.py).
+     Runs entirely in the browser: nothing is sent anywhere. — Applejack, Lead Development Agent -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Free Etsy Fee &amp; Profit Calculator · The Art Of Chaos</title>
+<meta name="description" content="Free Etsy fee calculator: listing, transaction, payment processing and Offsite Ads fees, plus what you actually keep. No sign-up.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <nav>
+      <a class="brand" href="index.html">The Art <span>Of</span> Chaos</a>
+      <div class="links"><a href="index.html#tools">Tools</a><a href="index.html#contact">Contact</a></div>
+    </nav>
+  </div>
+  <div class="page-head"><div class="wrap">
+    <h1>Free Etsy Fee &amp; Profit Calculator</h1>
+    <p>See every Etsy fee on a sale and what you actually keep. It runs in your browser, with nothing to sign up for and nothing saved.</p>
+  </div></div>
+</header>
+
+<main>
+  <section>
+    <div class="wrap calc">
+      <form class="card" id="f" autocomplete="off">
+        <label>Item price ($)<input id="price" type="number" min="0" step="0.01" value="25.00" inputmode="decimal"></label>
+        <label>Shipping you charge the buyer ($)<input id="ship" type="number" min="0" step="0.01" value="5.00" inputmode="decimal"></label>
+        <label>Your cost to make it ($)<span class="hint">Materials, or the print-on-demand base price</span><input id="cost" type="number" min="0" step="0.01" value="8.00" inputmode="decimal"></label>
+        <label>Shipping you pay ($)<input id="shipcost" type="number" min="0" step="0.01" value="4.50" inputmode="decimal"></label>
+        <label>Buyer's sales tax rate (%)<span class="hint">Etsy collects it, but payment processing is charged on it too</span><input id="tax" type="number" min="0" step="0.1" value="7" inputmode="decimal"></label>
+        <label>Sale came from an Offsite Ad?
+          <select id="ads"><option value="0">No</option><option value="0.15">Yes, 15%</option><option value="0.12">Yes, 12% (shops required to use Offsite Ads)</option></select>
+        </label>
+      </form>
+
+      <div class="card" aria-live="polite">
+        <h3>What Etsy takes</h3>
+        <div class="result-row"><span>Listing fee</span><span class="v" id="r-list"></span></div>
+        <div class="result-row"><span>Transaction fee (6.5%)</span><span class="v" id="r-txn"></span></div>
+        <div class="result-row"><span>Payment processing (3% + $0.25)</span><span class="v" id="r-proc"></span></div>
+        <div class="result-row"><span>Offsite Ads</span><span class="v" id="r-ads"></span></div>
+        <div class="result-row"><span><strong>Total Etsy fees</strong></span><span class="v" id="r-fees"></span></div>
+        <div class="result-row"><span>Your costs</span><span class="v" id="r-costs"></span></div>
+        <div class="result-row total" id="r-total-row"><span>You keep</span><span class="v" id="r-profit"></span></div>
+        <p class="muted" id="r-margin"></p>
+        <p class="muted">US Etsy rates as of November 2026: $0.20 listing, 6.5% transaction, 3% + $0.25 processing, Offsite Ads 15%/12% capped at $100. Rates change, so check Etsy's Fees &amp; Payments Policy. A planning tool, not tax advice.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="humans">
+    <div class="wrap">
+      <h2>Want this for every order, automatically?</h2>
+      <p>The <strong>Small Shop Profit Tracker 2027</strong> does this math for every sale, warns you before a print-on-demand cost outruns your cash, and totals the year for tax time.</p>
+      <div class="actions">
+        <a class="btn red" href="index.html#tools">Get the tracker ($7.99)</a>
+        <a class="btn red" href="https://discord.gg/7EBx8NafTJ" rel="noopener">Get free fee-change alerts in the Workshop</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 The Art Of Chaos · Made by a two-person shop. We use AI-assisted tools, and a person checks every release.</div>
+</footer>
+
+<script>
+// Same formulas as the tracker's Orders tab (qty 1). Rates: listing $0.20, txn 6.5%, processing 3% (incl. tax) + $0.25, ads capped at $100.
+const $ = id => document.getElementById(id);
+const num = id => Math.max(0, parseFloat($(id).value) || 0);
+const usd = n => (n < 0 ? "-$" : "$") + Math.abs(n).toFixed(2);
+function calc() {
+  const price = num("price"), ship = num("ship"), cost = num("cost"), shipcost = num("shipcost");
+  const tax = num("tax") / 100, adsRate = parseFloat($("ads").value) || 0;
+  const order = price + ship;
+  const listing = 0.20, txn = order * 0.065, proc = order * (1 + tax) * 0.03 + 0.25;
+  const ads = Math.min(order * adsRate, 100);
+  const fees = listing + txn + proc + ads, costs = cost + shipcost, profit = order - fees - costs;
+  $("r-list").textContent = usd(listing); $("r-txn").textContent = usd(txn);
+  $("r-proc").textContent = usd(proc); $("r-ads").textContent = adsRate ? usd(ads) : "$0.00";
+  $("r-fees").textContent = usd(fees); $("r-costs").textContent = usd(costs);
+  $("r-profit").textContent = usd(profit);
+  $("r-total-row").classList.toggle("loss", profit < 0);
+  $("r-margin").textContent = order > 0
+    ? `That's a ${(profit / order * 100).toFixed(1)}% margin on a ${usd(order)} order.${profit < 0 ? " This sale loses money; try the tracker's Price Calculator." : ""}`
+    : "";
+}
+document.querySelectorAll("#f input, #f select").forEach(el => el.addEventListener("input", calc));
+calc();
+</script>
+</body>
+</html>

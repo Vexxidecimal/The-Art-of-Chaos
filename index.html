@@ -9,65 +9,21 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --purple: #4A195A; --red: #882017; --red-bright: #B3261E; --lilac: #CCADCF; --mint: #84B295;
-    --blue: #88B8C4; --ink: #1A0A22; --bg: #FBF8FC; --card: #FFFFFF; --muted: #5E5368; --line: #E8DDEC;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root { --bg: #160B1C; --card: #23142B; --ink: #F3ECF6; --muted: #B9A9C2; --line: #3A2744; --red-bright: #E0574C; }
-  }
-  * { box-sizing: border-box; }
-  body { margin: 0; background: var(--bg); color: var(--ink); font: 17px/1.6 "Lato", system-ui, sans-serif; }
-  h1, h2, h3 { font-family: "Fredoka", "Lato", sans-serif; line-height: 1.15; margin: 0 0 .4em; }
-  a { color: inherit; }
-  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
-  header { background: var(--purple); color: #fff; }
-  nav { display: flex; justify-content: space-between; align-items: center; padding: 14px 0; gap: 12px; flex-wrap: wrap; }
-  .brand { font-family: "Fredoka", sans-serif; font-weight: 700; font-size: 22px; text-decoration: none; }
-  .brand span { color: var(--lilac); }
-  nav .links { display: flex; gap: 16px; }
-  nav .links a { color: #fff; opacity: .9; text-decoration: none; font-weight: 700; font-size: 15px; }
-  .hero { padding: 56px 0 64px; display: grid; gap: 24px; }
-  .hero h1 { font-size: clamp(34px, 6vw, 58px); }
-  .hero h1 em { font-style: normal; color: var(--lilac); }
-  .hero p { font-size: 19px; max-width: 640px; opacity: .95; margin: 0; }
-  .btn { display: inline-block; padding: 12px 22px; border-radius: 999px; font-weight: 700; text-decoration: none; }
-  .btn.red { background: var(--red-bright); color: #fff; box-shadow: 0 4px 0 var(--red); }
-  .btn.red:hover { transform: translateY(1px); box-shadow: 0 3px 0 var(--red); }
-  .btn.ghost { border: 2px solid var(--lilac); color: #fff; }
-  .actions { display: flex; gap: 12px; flex-wrap: wrap; }
-  section { padding: 56px 0; }
-  section h2 { font-size: clamp(26px, 4vw, 36px); color: var(--purple); }
-  @media (prefers-color-scheme: dark) { section h2 { color: var(--lilac); } }
-  .grid { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
-  .card { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 22px; }
-  .price { color: var(--red-bright); font-family: "Fredoka", sans-serif; font-weight: 700; font-size: 26px; }
-  .badge { display: inline-block; background: var(--red-bright); color: #fff; font-size: 12px; font-weight: 700;
-    padding: 2px 10px; border-radius: 999px; vertical-align: middle; }
-  .badge.soon { background: var(--lilac); color: var(--purple); }
-  ul.ticks { padding-left: 1.1em; margin: .6em 0 1em; }
-  .crew { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
-  .crew .card { text-align: center; }
-  .crew img { width: 150px; height: 150px; object-fit: contain; }
-  .muted { color: var(--muted); }
-  .humans { background: var(--card); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-  footer { padding: 32px 0 48px; color: var(--muted); font-size: 14px; }
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header>
   <div class="wrap">
     <nav>
       <a class="brand" href="#">The Art <span>Of</span> Chaos</a>
-      <div class="links"><a href="#tools">Tools</a><a href="#crew">Crew</a><a href="#contact">Contact</a></div>
+      <div class="links"><a href="calculator.html">Free calculator</a><a href="#tools">Tools</a><a href="#crew">Crew</a><a href="#contact">Contact</a></div>
     </nav>
     <div class="hero">
       <h1>Small-shop tools.<br><em>Real humans</em> included.</h1>
       <p>We're a two-person shop making spreadsheets and tools for small online sellers. Every product comes with a way to reach us, so questions get answered by people.</p>
       <div class="actions">
         <a class="btn red" href="#tools">See the tools</a>
-        <a class="btn ghost" href="https://discord.gg/fXGkAHFTKT" rel="noopener">Join the Workshop</a>
+        <a class="btn ghost" href="https://discord.gg/7EBx8NafTJ" rel="noopener">Join the Workshop</a>
       </div>
     </div>
   </div>
@@ -91,6 +47,12 @@
           </ul>
           <!-- STORE_LINK: replace "#contact" with the Lemon Squeezy product URL once the store is live -->
           <a class="btn red" href="#contact">Get it</a>
+        </div>
+        <div class="card">
+          <span class="badge">Free</span>
+          <h3>Etsy Fee &amp; Profit Calculator</h3>
+          <p>Type a price, see every Etsy fee and what you actually keep. No sign-up.</p>
+          <a class="btn red" href="calculator.html">Open the calculator</a>
         </div>
         <div class="card">
           <span class="badge soon">Coming soon</span>
@@ -140,7 +102,7 @@
         <div class="card">
           <h3>Discord Workshop</h3>
           <p>Type <code>/faq</code> for quick answers or <code>/ticket</code> to talk privately with us.</p>
-          <a class="btn red" href="https://discord.gg/fXGkAHFTKT" rel="noopener">Join the Workshop</a>
+          <a class="btn red" href="https://discord.gg/7EBx8NafTJ" rel="noopener">Join the Workshop</a>
         </div>
         <div class="card">
           <h3>Bought something?</h3>

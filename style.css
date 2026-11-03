@@ -1,0 +1,58 @@
+/* The Art Of Chaos site styles. — Applejack, Lead Development Agent */
+  :root {
+    --purple: #4A195A; --red: #882017; --red-bright: #B3261E; --lilac: #CCADCF; --mint: #84B295;
+    --blue: #88B8C4; --ink: #1A0A22; --bg: #FBF8FC; --card: #FFFFFF; --muted: #5E5368; --line: #E8DDEC;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #160B1C; --card: #23142B; --ink: #F3ECF6; --muted: #B9A9C2; --line: #3A2744; --red-bright: #E0574C; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 17px/1.6 "Lato", system-ui, sans-serif; }
+  h1, h2, h3 { font-family: "Fredoka", "Lato", sans-serif; line-height: 1.15; margin: 0 0 .4em; }
+  a { color: inherit; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+  header { background: var(--purple); color: #fff; }
+  nav { display: flex; justify-content: space-between; align-items: center; padding: 14px 0; gap: 12px; flex-wrap: wrap; }
+  .brand { font-family: "Fredoka", sans-serif; font-weight: 700; font-size: 22px; text-decoration: none; }
+  .brand span { color: var(--lilac); }
+  nav .links { display: flex; gap: 16px; }
+  nav .links a { color: #fff; opacity: .9; text-decoration: none; font-weight: 700; font-size: 15px; }
+  .hero { padding: 56px 0 64px; display: grid; gap: 24px; }
+  .hero h1 { font-size: clamp(34px, 6vw, 58px); }
+  .hero h1 em { font-style: normal; color: var(--lilac); }
+  .hero p { font-size: 19px; max-width: 640px; opacity: .95; margin: 0; }
+  .btn { display: inline-block; padding: 12px 22px; border-radius: 999px; font-weight: 700; text-decoration: none; }
+  .btn.red { background: var(--red-bright); color: #fff; box-shadow: 0 4px 0 var(--red); }
+  .btn.red:hover { transform: translateY(1px); box-shadow: 0 3px 0 var(--red); }
+  .btn.ghost { border: 2px solid var(--lilac); color: #fff; }
+  .actions { display: flex; gap: 12px; flex-wrap: wrap; }
+  section { padding: 56px 0; }
+  section h2 { font-size: clamp(26px, 4vw, 36px); color: var(--purple); }
+  @media (prefers-color-scheme: dark) { section h2 { color: var(--lilac); } }
+  .grid { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 22px; }
+  .price { color: var(--red-bright); font-family: "Fredoka", sans-serif; font-weight: 700; font-size: 26px; }
+  .badge { display: inline-block; background: var(--red-bright); color: #fff; font-size: 12px; font-weight: 700;
+    padding: 2px 10px; border-radius: 999px; vertical-align: middle; }
+  .badge.soon { background: var(--lilac); color: var(--purple); }
+  ul.ticks { padding-left: 1.1em; margin: .6em 0 1em; }
+  .crew { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+  .crew .card { text-align: center; }
+  .crew img { width: 150px; height: 150px; object-fit: contain; }
+  .muted { color: var(--muted); }
+  .humans { background: var(--card); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  footer { padding: 32px 0 48px; color: var(--muted); font-size: 14px; }
+
+  /* calculator */
+  .calc { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); align-items: start; }
+  .calc label { display: grid; gap: 4px; font-weight: 700; font-size: 15px; margin-bottom: 12px; }
+  .calc input, .calc select { font: inherit; padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px;
+    background: var(--bg); color: var(--ink); }
+  .calc .hint { font-weight: 400; font-size: 13px; color: var(--muted); }
+  .result-row { display: flex; justify-content: space-between; padding: 7px 0; border-top: 1px solid var(--line); }
+  .result-row.total { font-family: "Fredoka", sans-serif; font-size: 22px; border-top: 2px solid var(--purple); }
+  .result-row.total.loss .v { color: var(--red-bright); }
+  .result-row.total .v { color: var(--purple); }
+  @media (prefers-color-scheme: dark) { .result-row.total .v { color: var(--lilac); } }
+  .page-head { background: var(--purple); color: #fff; padding: 36px 0; }
+  .page-head p { opacity: .95; margin: 0; max-width: 680px; }
