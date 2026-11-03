@@ -66,10 +66,13 @@ ul.ticks li::marker { color: var(--teal); }
 
 /* the humans band: indigo, with a quote in Ovo */
 .humans { background: var(--indigo); color: #FFFFFF; }
-.humans h2 { color: var(--lime); }
-.humans a { color: var(--lime); }
+/* no lime on indigo (Dyzzy 2026-11-03: green on purple looks off): white type, white rule */
+.humans h2 { color: #FFFFFF; }
+.humans h2::after { background: #FFFFFF; }
+.humans a { color: #FFFFFF; }
 .humans .muted { color: #D9D2E3; }
-.humans strong { color: var(--lime); }
+.humans strong { color: #FFFFFF; font-weight: 700; }
+.humans .btn.primary { background: #FFFFFF; color: var(--indigo); border-color: #000000; box-shadow: 0 4px 0 #000000; }
 .quote { font-family: "Ovo", Georgia, serif; font-size: 22px; line-height: 1.5; max-width: 720px; margin: 0 0 1em; }
 
 footer { background: var(--charcoal); color: #D0D0D0; padding: 28px 0 40px; font-size: 14px; }
