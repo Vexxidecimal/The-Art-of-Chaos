@@ -1,0 +1,158 @@
+<!doctype html>
+<!-- The Art Of Chaos: one-page site. Static, no trackers, no cookies. — Applejack, Lead Development Agent -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Art Of Chaos · Small-shop tools, real humans</title>
+<meta name="description" content="Spreadsheets and tools for small online sellers, made by a two-person shop. Real humans included.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --purple: #4A195A; --red: #882017; --red-bright: #B3261E; --lilac: #CCADCF; --mint: #84B295;
+    --blue: #88B8C4; --ink: #1A0A22; --bg: #FBF8FC; --card: #FFFFFF; --muted: #5E5368; --line: #E8DDEC;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #160B1C; --card: #23142B; --ink: #F3ECF6; --muted: #B9A9C2; --line: #3A2744; --red-bright: #E0574C; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 17px/1.6 "Lato", system-ui, sans-serif; }
+  h1, h2, h3 { font-family: "Fredoka", "Lato", sans-serif; line-height: 1.15; margin: 0 0 .4em; }
+  a { color: inherit; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+  header { background: var(--purple); color: #fff; }
+  nav { display: flex; justify-content: space-between; align-items: center; padding: 14px 0; gap: 12px; flex-wrap: wrap; }
+  .brand { font-family: "Fredoka", sans-serif; font-weight: 700; font-size: 22px; text-decoration: none; }
+  .brand span { color: var(--lilac); }
+  nav .links { display: flex; gap: 16px; }
+  nav .links a { color: #fff; opacity: .9; text-decoration: none; font-weight: 700; font-size: 15px; }
+  .hero { padding: 56px 0 64px; display: grid; gap: 24px; }
+  .hero h1 { font-size: clamp(34px, 6vw, 58px); }
+  .hero h1 em { font-style: normal; color: var(--lilac); }
+  .hero p { font-size: 19px; max-width: 640px; opacity: .95; margin: 0; }
+  .btn { display: inline-block; padding: 12px 22px; border-radius: 999px; font-weight: 700; text-decoration: none; }
+  .btn.red { background: var(--red-bright); color: #fff; box-shadow: 0 4px 0 var(--red); }
+  .btn.red:hover { transform: translateY(1px); box-shadow: 0 3px 0 var(--red); }
+  .btn.ghost { border: 2px solid var(--lilac); color: #fff; }
+  .actions { display: flex; gap: 12px; flex-wrap: wrap; }
+  section { padding: 56px 0; }
+  section h2 { font-size: clamp(26px, 4vw, 36px); color: var(--purple); }
+  @media (prefers-color-scheme: dark) { section h2 { color: var(--lilac); } }
+  .grid { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 22px; }
+  .price { color: var(--red-bright); font-family: "Fredoka", sans-serif; font-weight: 700; font-size: 26px; }
+  .badge { display: inline-block; background: var(--red-bright); color: #fff; font-size: 12px; font-weight: 700;
+    padding: 2px 10px; border-radius: 999px; vertical-align: middle; }
+  .badge.soon { background: var(--lilac); color: var(--purple); }
+  ul.ticks { padding-left: 1.1em; margin: .6em 0 1em; }
+  .crew { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+  .crew .card { text-align: center; }
+  .crew img { width: 150px; height: 150px; object-fit: contain; }
+  .muted { color: var(--muted); }
+  .humans { background: var(--card); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  footer { padding: 32px 0 48px; color: var(--muted); font-size: 14px; }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <nav>
+      <a class="brand" href="#">The Art <span>Of</span> Chaos</a>
+      <div class="links"><a href="#tools">Tools</a><a href="#crew">Crew</a><a href="#contact">Contact</a></div>
+    </nav>
+    <div class="hero">
+      <h1>Small-shop tools.<br><em>Real humans</em> included.</h1>
+      <p>We're a two-person shop making spreadsheets and tools for small online sellers. Every product comes with a way to reach us, so questions get answered by people.</p>
+      <div class="actions">
+        <a class="btn red" href="#tools">See the tools</a>
+        <a class="btn ghost" href="https://discord.gg/fXGkAHFTKT" rel="noopener">Join the Workshop</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section id="tools">
+    <div class="wrap">
+      <h2>Tools</h2>
+      <div class="grid">
+        <div class="card">
+          <span class="badge">New</span>
+          <h3>Small Shop Profit Tracker 2027</h3>
+          <p class="price">$7.99</p>
+          <p>See what you really keep from every Etsy sale, after every fee.</p>
+          <ul class="ticks">
+            <li>Every Etsy fee calculated automatically</li>
+            <li>Print-on-demand cash-flow warning</li>
+            <li>Price Calculator, monthly dashboard, year-end totals</li>
+            <li>Works in Excel and Google Sheets</li>
+          </ul>
+          <!-- STORE_LINK: replace "#contact" with the Lemon Squeezy product URL once the store is live -->
+          <a class="btn red" href="#contact">Get it</a>
+        </div>
+        <div class="card">
+          <span class="badge soon">Coming soon</span>
+          <h3>Small Shop Desk</h3>
+          <p>A short weekly digest for small sellers: fee and rule changes, one tip and one free tool. It's free in the Workshop.</p>
+        </div>
+        <div class="card">
+          <span class="badge soon">Coming soon</span>
+          <h3>Printables &amp; logbooks</h3>
+          <p>Printable trackers and a paperback sales &amp; fee logbook for sellers who like pen and paper.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="humans">
+    <div class="wrap">
+      <h2>Who's behind it</h2>
+      <p><strong>Michael ("Dyzzy")</strong> builds and checks the tools. <strong>Elizabeth ("Chaos")</strong> is the heart of the brand and the creator behind it. We've been dreaming up The Art Of Chaos for eight years. We read every message and reply personally.</p>
+      <p class="muted">We use AI-assisted tools in our work, and a person on our team checks and approves every release.</p>
+    </div>
+  </section>
+
+  <section id="crew">
+    <div class="wrap">
+      <h2>Meet the Workshop crew</h2>
+      <p class="muted">Our helpers are AI. They're friendly, honest about it, and they always hand you to a human when it matters.</p>
+      <div class="crew">
+        <div class="card">
+          <img src="img/aspen.png" alt="Aspen, a cartoon beaver waving">
+          <h3>Aspen 🦫</h3>
+          <p>Community Manager. He keeps the Workshop tidy, answers quick questions and opens a ticket when you need a person.</p>
+        </div>
+        <div class="card">
+          <img src="img/francine.png" alt="Francine, a cartoon opossum with a pink bow">
+          <h3>Francine 🎀</h3>
+          <p>Content Producer. She digs up the week's useful finds for Small Shop Desk and makes the printables.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <h2>Contact</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Discord Workshop</h3>
+          <p>Type <code>/faq</code> for quick answers or <code>/ticket</code> to talk privately with us.</p>
+          <a class="btn red" href="https://discord.gg/fXGkAHFTKT" rel="noopener">Join the Workshop</a>
+        </div>
+        <div class="card">
+          <h3>Bought something?</h3>
+          <p>Reply where you bought it, or open a ticket in the Workshop. A human answers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 The Art Of Chaos · Tools for record-keeping, not tax or legal advice.</div>
+</footer>
+</body>
+</html>
